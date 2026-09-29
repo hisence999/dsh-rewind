@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+
+# 临时/工具目录
+.tmp-*/
+.trash/
+
+# 本地开发资料，不入公开仓库
+# memory/  —— DSH 项目记忆与日志（含本机环境、调试过程）
+# backups/ —— 配置转储，含真实 API key
+memory/
+backups/
+
+# 注意：lib/ 是**构建产物但必须入库**——git/npm 源安装默认不跑构建脚本，
+# 产物必须在包里。所以这里刻意不忽略 lib/。
+!lib/
+
+# 编辑器/系统
+.DS_Store
+Thumbs.db
+*.log

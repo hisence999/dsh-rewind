@@ -1,0 +1,12 @@
+# dsh-rewind —— bundle 层 patch
+#
+# 该层被 profile 的 dsh.profile.bundles 引用后生效，向配置树插入一行插件。
+# 覆盖配置：在 profile 的 cordis.patch.yml 里按 `- id: dsh-rewind` 写新 config 即可。
+# ⚠️ patch 是整行替换 config、不做深合并，只想改一个键也要重述全部要保留的键。
+#
+# 本插件是**纯客户端 UI 插件**：这里插入的 Node 侧 apply() 是空实现，
+# 全部行为都在 exports["./client"]（浏览器半）。目的只是让插件出现在
+# config 树 / 插件清单里，从而让 dsh web 把 client bundle 下发给浏览器。
+- insert:
+    - id: dsh-rewind
+      name: dsh-rewind

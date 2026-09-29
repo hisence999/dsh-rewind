@@ -1,0 +1,44 @@
+{
+  "name": "dsh-rewind",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DSH 插件：在每条用户消息下加「撤回 / 编辑」。撤回把对话回退到该消息之前（fork + 归档原会话），编辑改写该消息后从该处重新开始。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "rewind",
+    "edit-message"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "bundle": "node scripts/build.mjs",
+    "gates": "node scripts/gates.mjs",
+    "check": "node scripts/build.mjs && node scripts/gates.mjs",
+    "smoke:require": "node scripts/smoke-require.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
